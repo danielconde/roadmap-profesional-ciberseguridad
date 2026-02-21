@@ -315,6 +315,6 @@ El autor no se hace responsable del uso indebido del contenido aquí expuesto ni
 
 # 🚀 Comienza por:
 
-`00_Entorno_Laboratorio`
+[00_Entorno_Laboratorio](00_Entorno_Laboratorio.md)
 
 Sin laboratorio no hay aprendizaje real.
