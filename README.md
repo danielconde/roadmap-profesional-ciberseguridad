@@ -1,4 +1,4 @@
-# Roadmap Profesional de Ciberseguridad – 3 Meses 🚀
+# Roadmap Profesional de Ciberseguridad en 3 Meses 🚀
 
 Autor: Daniel Conde → https://www.linkedin.com/in/daniconde/
 
