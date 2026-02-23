@@ -10,16 +10,19 @@ En estas 11 semanas anteriores has tocado:
 - Hacking ético y seguridad web.
 - Blue Team, SOC, Threat Hunting y enfoque Purple Team apoyado en MITRE ATT&CK.
 
-Es mucho contenido para una persona que empieza, pero la clave es que **has creado una base estructurada** y un laboratorio sobre el que puedes seguir construyendo.
+Es mucho contenido para una persona que empieza, pero la clave es que has creado una base estructurada y un laboratorio sobre el que puedes seguir construyendo.
 
 En esta Semana 12 vamos a centrar el foco en tres cosas:
 
-1. **Repaso global estructurado** de lo aprendido (tipo “mapa mental”).
-2. **Proyecto final integrador**, que junte Red + Blue + automatización + documentación.
-3. **Preparación para empleo real**:
+1. Repaso global estructurado de lo aprendido (tipo "mapa mental").
+2. Proyecto final integrador, que junte Red + Blue + automatización + documentación.
+3. Preparación para empleo real:
    - Cómo presentar tu laboratorio y tu GitHub.
-   - Cómo aprovechar estos `.md` como portfolio.
+   - Cómo aprovechar estos .md como portfolio.
    - Qué puntos destacar en entrevistas para un puesto junior / SOC / ciberseguridad generalista.
+
+**Prompt IA:**  
+"Actúa como mentor de carrera en ciberseguridad. Resume mi ruta de 12 semanas en 12 bullets muy claros, y después propone un plan de la Semana 12 con: repaso, proyecto final, portfolio GitHub y preparación de entrevistas. Mantén tono profesional y accionable."
 
 ---
 
@@ -27,92 +30,123 @@ En esta Semana 12 vamos a centrar el foco en tres cosas:
 
 Al finalizar esta semana deberías ser capaz de:
 
-1. Tener una visión global (tipo “mapa”) de todo lo que has visto en 3 meses.
-2. Diseñar y ejecutar un **proyecto final integrador** que:
+1. Tener una visión global tipo "mapa" de todo lo visto en 3 meses.
+2. Diseñar y ejecutar un proyecto final integrador que:
    - Use tu laboratorio.
    - Incluya al menos un escenario ofensivo + análisis defensivo.
    - Aplique automatización ligera (scripts).
    - Termine en un informe profesional.
-3. Organizar tu repositorio GitHub para que parezca un **mini-curso/portfolio** y no solo un montón de archivos sueltos.
-4. Saber explicar, en una entrevista, qué has aprendido:
+3. Organizar tu repositorio GitHub para que parezca un mini-curso/portfolio y no solo un montón de archivos sueltos.
+4. Saber explicar en una entrevista qué has aprendido:
    - A nivel técnico (Linux, redes, SOC, pentesting básico).
    - A nivel de mentalidad (metodología, documentación, laboratorio).
-5. Tener una lista de **siguientes pasos** tras estos 3 meses (profundización, certificaciones, proyectos adicionales).
+5. Tener una lista de siguientes pasos tras estos 3 meses (profundización, certificaciones, proyectos adicionales).
+
+**Prompt IA:**  
+"Define objetivos medibles para la Semana 12 (portfolio y empleo). Para cada objetivo incluye: criterio de éxito, evidencia que lo demuestra en GitHub, y cómo explicarlo en 30 segundos en una entrevista."
 
 ---
 
 ## 2. Repaso global estructurado
 
 Antes de hacer el proyecto final, conviene que consolides la imagen general.  
-Piensa en tus conocimientos como en **capas**:
+Piensa en tus conocimientos como en capas.
 
 ### 2.1. Capa 1 – Base técnica
 
-- **Sistemas Operativos**:
+- Sistemas Operativos:
   - Linux (Kali, Ubuntu):
     - Estructura del sistema.
-    - Servicios, procesos, logs (`/var/log/auth.log`, syslog).
+    - Servicios, procesos, logs (/var/log/auth.log, syslog).
     - Permisos y usuarios.
   - Windows:
     - Servicios, procesos, registro.
     - Visor de eventos.
     - PowerShell.
 
-- **Redes**:
+- Redes:
   - IP, puertos, TCP/UDP.
   - Rutas básicas, NAT, subredes.
   - Tráfico normal vs sospechoso.
+  - Concepto de superficie expuesta: qué servicios escuchan, dónde, y con qué controles.
+
+Idea clave de repaso:
+
+- Si entiendes "qué ocurre" en sistemas y red, luego puedes entender "cómo se ataca" y "cómo se detecta".
 
 ### 2.2. Capa 2 – Ciberseguridad general
 
 - Modelo CIA (Confidencialidad, Integridad, Disponibilidad).
 - Tipos de ataques (phishing, malware, ransomware, fuerza bruta, etc.).
-- Kill Chain / MITRE ATT&CK como forma de describir ataques.
-- Datos, backups, RPO/RTO, identidad, permisos.
+- Kill Chain / MITRE ATT&CK como forma de describir ataques:
+  - Kill Chain como secuencia.
+  - ATT&CK como catálogo de técnicas.
+- Datos, backups, RPO/RTO, identidad, permisos:
+  - La mayoría de incidentes afectan a datos e identidad, no a "máquinas" como tal.
+  - Una buena estrategia de backup y de permisos reduce muchísimo impacto real.
 
 ### 2.3. Capa 3 – Cloud y automatización
 
-- Conceptos de cloud:
+- Cloud:
   - IaaS, PaaS, SaaS.
+  - Modelo de responsabilidad compartida.
   - VM en cloud, redes virtuales, Security Groups / NSG.
-  - Buckets/Blobs y problemas típicos de configuración.
+  - Buckets/Blobs y problemas típicos de configuración (exposición accidental, credenciales, permisos excesivos).
+
 - Automatización y scripting:
-  - Bash para logs Linux.
-  - Python para procesar ficheros.
+  - Bash para procesar logs Linux (grep, wc, pipelines).
+  - Python para procesar ficheros y agrupar resultados.
   - PowerShell para eventos Windows.
-  - Uso responsable de IA (vibecoding) para generar y mejorar scripts.
+  - Uso responsable de IA (vibecoding):
+    - La IA acelera, pero tú validas.
+    - Todo se prueba en laboratorio.
 
 ### 2.4. Capa 4 – Ofensiva básica (Red Team / Hacking ético)
 
 - Fases de un pentest:
   - Reconocimiento, escaneo, enumeración.
-  - (Pre-explotación, explotación, post-explotación, informe).
+  - Explotación y post-explotación (a nivel conceptual, sin necesidad de CVEs complejas).
+  - Informe: siempre documentar.
+
 - Kali Linux:
   - nmap para escaneo.
-  - Herramientas básicas orientadas a web (Burp, etc.).
+  - Herramientas básicas orientadas a web (Burp, DevTools).
+
 - Seguridad web:
   - HTTP, parámetros, sesiones, cookies.
   - OWASP Top 10 (visión general).
   - Conceptos de XSS, inyección, exposición de datos.
+  - La web es un flujo de peticiones donde los parámetros viajan y se pueden manipular.
 
 ### 2.5. Capa 5 – Defensiva (Blue Team / SOC / Hunting)
 
 - Eventos vs alertas vs incidentes.
-- Concepto de SIEM, EDR, IDS/IPS, WAF.
-- IOCs, reglas, casos de uso.
+- Concepto de SIEM, EDR, IDS/IPS, WAF como fuentes de señales.
+- IOCs, reglas, casos de uso, triage.
 - Threat Hunting:
-  - Hipótesis → búsquedas → análisis → conclusiones.
+  - Hipótesis → búsquedas → análisis → conclusiones → mejoras.
   - Hunting con SSH (auth.log) y PowerShell.
+
+Concepto importante para entrevistas:
+
+- No es solo "sé herramientas", es "sé el flujo": qué miro, por qué, cómo concluyo.
 
 ### 2.6. Capa 6 – Enfoque Purple Team
 
 - Red y Blue colaborando.
-- Uso de MITRE ATT&CK para describir técnicas.
+- Uso de MITRE ATT&CK para describir técnicas y enlazarlas con evidencias.
 - Ejercicios Purple:
-  - Escenario concreto.
+  - Escenario concreto y repetible.
   - Pasos ofensivos.
   - Evidencias en logs.
   - Detecciones y mejoras.
+
+Aquí está uno de tus diferenciales de junior:
+
+- Sabes unir ataque → evidencia → detección → mejora.
+
+**Prompt IA:**  
+"Convierte estas 6 capas en un mapa mental en texto: nodos principales y sub-nodos. Después, genera un guion de 60 segundos para explicar el roadmap completo en una entrevista."
 
 ---
 
@@ -121,19 +155,19 @@ Piensa en tus conocimientos como en **capas**:
 El proyecto final es la parte más importante de esta semana.  
 La idea es que, cuando termines, puedas decir:
 
-> “No solo he seguido un curso, he construido y documentado un **ejercicio completo** que muestra cómo trabajo.”
+- "No solo he seguido un curso, he construido y documentado un ejercicio completo que muestra cómo trabajo."
 
 ### 3.1. Nombre del fichero principal
 
 Proyecto principal:
 
-`09-Proyecto-Empleo-Semana_12_Proyecto_Final.md`
+- `09-Proyecto-Empleo-Semana_12_Proyecto_Final.md`
 
-Además, puedes crear sub-ficheros si se alarga demasiado (logs, scripts, etc.).
+Además, puedes crear sub-ficheros si se alarga demasiado (logs, scripts, capturas, etc.).
 
 ### 3.2. Objetivo del proyecto
 
-Diseñar y ejecutar un **escenario de ataque–defensa** en tu laboratorio, que incluya:
+Diseñar y ejecutar un escenario ataque–defensa en tu laboratorio, que incluya:
 
 1. Parte ofensiva:
    - Descubrimiento.
@@ -147,66 +181,82 @@ Diseñar y ejecutar un **escenario de ataque–defensa** en tu laboratorio, que 
 4. Informe:
    - Documento final con estructura profesional.
 
+Regla de oro:
+
+- Todo debe ser reproducible: que dentro de 1 mes puedas repetir el proyecto y obtener señales parecidas.
+
+**Prompt IA:**  
+"Propón 3 ideas de proyecto final integrador para un laboratorio con Kali, Ubuntu y Windows. Para cada idea: pasos ofensivos, evidencias en logs, script de automatización sugerido, y valor para un reclutador. Recomienda una opción final."
+
 ---
 
 ## 4. Fases del proyecto final
 
-En el fichero `09-Proyecto-Empleo-Semana_12_Proyecto_Final.md`, te propongo esta estructura:
+En el fichero `09-Proyecto-Empleo-Semana_12_Proyecto_Final.md`, estructura recomendada:
 
 ### 4.1. 1. Descripción del entorno de laboratorio
 
-- Resumen de tus máquinas:
+Incluye:
+
+- Máquinas:
   - Kali (atacante).
   - Ubuntu (servidor).
-  - Windows (estación de trabajo / servidor).
-- Esquema sencillo de red:
-  - IPs principales.
+  - Windows (estación / servidor).
+- Red:
+  - IPs.
   - Tipo de red (Host-Only, NAT, etc.).
-- Servicios expuestos en cada máquina (puertos principales).
+- Servicios expuestos (puertos principales por máquina).
+- Control previo:
+  - Snapshot si aplica.
+  - Usuarios de prueba (y cómo los distingues de usuarios "reales" del lab).
 
-Puedes reutilizar info de `Lab_Setup_Report.md` pero resumiendo.
+**Prompt IA:**  
+"Redacta en Markdown una sección 'Entorno' para mi proyecto final: inventario de máquinas, red, servicios expuestos y pre-requisitos (snapshots, usuarios de prueba, rutas de logs). Usa placeholders donde falten datos."
 
 ---
 
 ### 4.2. 2. Escenario de ataque elegido
 
-Elige **UNO** de estos enfoques (o mezcla dos si te ves con fuerzas):
+Elige uno (o mezcla dos si está muy claro y no te complica).
 
 #### Opción 1 – SSH + Linux
 
 - Ataque:
   - Escaneo de puertos.
-  - Fuerza bruta SSH controlada con intentos limitados.
-  - Login exitoso con credenciales débiles de usuario de pruebas.
+  - Intentos de login fallidos controlados.
+  - Login exitoso con credenciales de prueba.
 - Defensa:
-  - Búsqueda de picos de `Failed password`.
-  - Detección de login exitoso desde la misma IP.
-  - Propuesta de regla de detección.
+  - Picos de Failed password.
+  - Correlación con Accepted password desde la misma IP.
+  - Regla conceptual de detección.
 
 #### Opción 2 – PowerShell en Windows
 
 - Ataque:
-  - Ejecución de PowerShell con flags sospechosos (`-NoProfile`, `-WindowStyle Hidden`).
-  - Simulación de comando de descarga o ejecución (sin malware real).
+  - Ejecución de PowerShell con flags sospechosos (-NoProfile, -WindowStyle Hidden).
+  - Simulación de comportamiento (sin malware real).
 - Defensa:
   - Eventos de PowerShell.
-  - Script de hunting para filtrar eventos con esos patrones.
-  - Propuesta de alerta y medidas de hardening.
+  - Script de hunting para filtrar.
+  - Alerta conceptual y hardening.
 
-#### Opción 3 – WebApp + XSS / parámetros
+#### Opción 3 – WebApp + parámetros / XSS
 
 - Ataque:
-  - Manipulación de parámetros en tu web de prueba (`test_form.php`).
-  - XSS sencillo o manipulación de valores inesperados.
+  - Manipulación de parámetros en web de prueba.
+  - XSS de prueba en entorno controlado.
 - Defensa:
-  - Logs del servidor web.
-  - Reflexión sobre cómo detectarlo con WAF/Reglas SIEM.
-  - Propuesta de sanitización y medidas de desarrollo seguro.
+  - Logs web.
+  - Idea de detección (WAF / SIEM).
+  - Medidas de sanitización y desarrollo seguro.
 
-En tu proyecto, define claramente:
+En el proyecto, define claramente:
 
 - Escenario seleccionado.
-- Justificación de por qué lo has elegido (por ejemplo, alineado con SOC, pentest web, etc.).
+- Justificación: por qué lo elegiste y qué demuestra.
+
+**Prompt IA:**  
+"Quiero elegir un escenario (SSH, PowerShell o Web). Hazme un cuestionario rápido de 8 preguntas para decidir cuál encaja mejor con mi perfil objetivo (SOC vs pentest vs generalista). Al final recomienda el escenario."
 
 ---
 
@@ -215,13 +265,20 @@ En tu proyecto, define claramente:
 Describe, paso a paso:
 
 1. Reconocimiento:
-   - Escaneo con nmap (si aplica).
-   - Descubrimiento de servicios.
+   - Descubrimiento de servicios expuestos.
+   - Enumeración mínima.
 2. Ataque:
-   - Comandos/conexiones específicas (SSH, PowerShell, web).
-   - Ejemplos de parámetros, comandos, scripts.
+   - Acciones concretas (SSH, PowerShell, web).
+   - Qué pretende demostrar cada acción.
 
-Aquí no necesitas exploits avanzados; lo importante es la **metodología y claridad**.
+Recomendación de estilo:
+
+- Usa pasos numerados.
+- Incluye comandos solo si son de tu laboratorio.
+- Manténlo controlado: el objetivo es generar evidencia, no "romper" nada.
+
+**Prompt IA:**  
+"Redacta un 'Paso a paso Red Team' para el escenario que elija (SSH o PowerShell o Web). Debe incluir objetivo por paso, comando o acción, y qué evidencia debería quedar en logs. Mantén todo en entorno de laboratorio."
 
 ---
 
@@ -229,39 +286,59 @@ Aquí no necesitas exploits avanzados; lo importante es la **metodología y clar
 
 Para cada paso ofensivo, responde:
 
-- ¿Qué logs se han generado?
-- ¿En qué rutas/visores se encuentran?
-- ¿Qué campos son clave? (IP, usuario, comando, endpoint, etc.)
+- Qué log se genera.
+- Dónde está (ruta o visor).
+- Qué campos importan:
+  - IP, usuario, timestamp, proceso, comando, endpoint, etc.
 
 Incluye:
 
-- Extractos de logs.
-- Resultado de scripts de hunting (por ejemplo, conteo de intentos SSH, filtrado de eventos de PowerShell).
+- Extractos de logs (recortados).
+- Resultado de scripts de hunting.
 
-Puedes crear ficheros adicionales para detalle, por ejemplo:
+Ficheros opcionales si quieres detalle:
 
 - `09-Proyecto-Empleo-Semana_12_Logs_SSH.md`
 - `09-Proyecto-Empleo-Semana_12_Logs_PowerShell.md`
-- etc.
+- `09-Proyecto-Empleo-Semana_12_Logs_Web.md`
+
+La idea es que el proyecto final quede limpio, y los logs estén en anexos.
+
+**Prompt IA:**  
+"Actúa como analista SOC. Genera en Markdown una sección de 'Evidencias y análisis' para mi proyecto final: qué buscar en logs, cómo correlacionar eventos, cómo construir un timeline y cómo decidir si sería True Positive o prueba controlada."
 
 ---
 
 ### 4.5. 5. Automatización aplicada
 
-Elige al menos **un script** que forme parte del proyecto final:
+Elige al menos un script que forme parte del proyecto final:
 
 - Bash, Python o PowerShell.
-- Que haga algo útil, como:
-  - Contar intentos de login fallidos por IP.
-  - Extraer eventos PowerShell con ciertos parámetros.
-  - Buscar patrones concretos en un log web.
+- Debe aportar valor real:
+  - contar, agrupar, extraer, filtrar
+  - producir un output que podrías pegar en un informe
 
 Incluye:
 
 - Código del script.
-- Breve explicación de cómo funciona.
+- Explicación de alto nivel de cómo funciona.
 - Ejemplo de salida.
 - Ideas de mejora futura.
+
+Buenas ideas de automatización (según escenario):
+
+- SSH:
+  - contar fallos por IP
+  - detectar secuencia fallos → éxito
+- PowerShell:
+  - filtrar eventos por flags sospechosos
+  - destacar usuario y hora
+- Web:
+  - buscar patrones en access.log
+  - extraer top rutas o parámetros sospechosos
+
+**Prompt IA:**  
+"Genera un script sencillo (elige Bash o Python o PowerShell según mi escenario) para analizar logs del laboratorio: agrupar por IP o usuario, y mostrar un resumen tipo reporte. Incluye explicación de uso y ejemplo de salida."
 
 ---
 
@@ -270,20 +347,23 @@ Incluye:
 Haz un resumen del escenario usando MITRE:
 
 - Tácticas implicadas (Execution, Credential Access, Initial Access, etc.).
-- Técnicas (de forma textual, no hace falta ID exacto).
-- Evidencias asociadas a cada técnica.
+- Técnicas en texto (no hace falta ID exacto).
+- Evidencias asociadas.
 
 Ejemplo:
 
-- **Fuerza bruta SSH**:
+- Fuerza bruta SSH:
   - Táctica: Credential Access / Initial Access.
-  - Técnica: Intentos repetidos de autenticación sobre servicio SSH.
-  - Evidencias: `Failed password` repetidos en auth.log.
+  - Técnica: intentos repetidos de autenticación sobre servicio SSH.
+  - Evidencias: Failed password repetidos en auth.log.
 
-- **PowerShell con WindowStyle Hidden**:
+- PowerShell con WindowStyle Hidden:
   - Táctica: Execution / Defense Evasion.
-  - Técnica: Uso de PowerShell con parámetros que evitan mostrar ventanas.
-  - Evidencias: Eventos de PowerShell con `-NoProfile`, `WindowStyle Hidden`.
+  - Técnica: PowerShell con parámetros que ocultan ventana o reducen trazabilidad.
+  - Evidencias: eventos que contienen esos flags.
+
+**Prompt IA:**  
+"Haz un mapeo MITRE ATT&CK en Markdown para mi escenario. Incluye una tabla: Paso, Táctica, Técnica, Evidencia, Idea de detección y Mitigación. No uses IDs si no son seguros."
 
 ---
 
@@ -291,147 +371,146 @@ Ejemplo:
 
 Cierra el proyecto con:
 
-1. **Resumen del ataque simulado**:
-   - Qué se ha hecho.
-   - Qué se ha demostrado.
+1. Resumen del ataque simulado:
+   - qué se hizo
+   - qué se demostró
 
-2. **Capacidad de detección actual en tu lab**:
-   - Qué has conseguido ver.
-   - Qué scripts o búsquedas funcionan bien.
+2. Capacidad de detección actual:
+   - qué se ve bien
+   - qué no se ve
+   - qué automatización te ayuda
 
-3. **Detecciones propuestas**:
-   - Idea de reglas SIEM.
-   - Umbrales (x intentos en y minutos, etc.).
-   - Severidad.
+3. Detecciones propuestas:
+   - idea de regla SIEM
+   - umbrales y ventana temporal
+   - severidad
+   - falsos positivos esperables
 
-4. **Mejoras de hardening**:
-   - A nivel de sistema:
-     - Configuración de SSH (no root login, MFA, reglas de firewall).
-     - Políticas de PowerShell.
-   - A nivel de procesos:
-     - Respuesta ante detecciones similares.
-     - Documentación/playbook.
+4. Mejoras de hardening:
+   - a nivel técnico
+   - a nivel de proceso (mini playbook)
 
-5. **Reflexión personal**:
-   - Qué parte te ha costado más.
-   - Qué parte te ha gustado más (SOC, pentest, automatización, Purple…).
+5. Reflexión personal:
+   - qué te costó
+   - qué te gustó
+   - qué repetirías para mejorar
+
+**Prompt IA:**  
+"Actúa como ingeniero de detección. A partir de un escenario (SSH o PowerShell o Web), escribe conclusiones y detecciones propuestas: reglas, campos necesarios, umbrales, severidad, falsos positivos y pasos de triage N1."
 
 ---
 
 ## 5. Organizar tu GitHub como portfolio
 
-Hasta ahora has creado muchos `.md`. Vamos a convertir eso en un mini-curso/portfolio limpio.
+Hasta ahora has creado muchos .md. Vamos a convertir eso en un mini-curso/portfolio limpio.
 
 ### 5.1. Crear una estructura clara
 
-En tu repositorio, algo así:
+No hace falta que muevas todo de golpe, pero sí que:
 
-- `/README.md` (principal del curso).
-- `/00-Lab` → documentación del laboratorio.
-- `/01-Fundamentos` → semanas 1–4 (conceptos base).
-- `/02-Cloud-Automatizacion` → semanas 5–6.
-- `/03-Ofensiva` → semanas 7 y 9.
-- `/04-Defensiva` → semanas 8 y 10.
-- `/05-Purple-MITRE` → semana 11.
-- `/06-Proyecto-Final` → semana 12 (este proyecto).
-
-No hace falta que muevas los ficheros sí o sí, pero tener esta idea te ayuda a explicarlo en entrevistas.
+- haya una ruta lógica
+- haya enlaces desde el README
+- se entienda el orden
 
 ### 5.2. README principal orientado a reclutadores
 
-En tu `README.md` principal (del repo), explica:
+En tu README.md:
 
 - Qué es este repositorio:
-  - “Roadmap de 3 meses de aprendizaje autodidacta en ciberseguridad (SOC + Red Team + automatización).”
+  - "Roadmap de 3 meses de aprendizaje autodidacta en ciberseguridad (SOC + ofensiva básica + automatización)."
 - Qué incluye:
-  - Estructura por semanas.
-  - Proyecto final.
-- Cómo se puede navegar:
-  - Enlaces a carpetas/secciones.
+  - semanas
+  - prácticas
+  - scripts
+  - proyecto final
+- Cómo navegarlo:
+  - enlaces a carpetas
+  - enlaces al proyecto final
+- Tecnologías y conceptos:
+  - Linux, Windows, redes, cloud, logs, scripting, MITRE, OWASP
 
-Piensa en alguien que no te conoce y entra desde LinkedIn; debe entender rápido:
+Consejo práctico:
 
-> “Esta persona se ha organizado un plan serio, ha montado un lab, ha hecho un proyecto final y lo ha documentado.”
+- El README debe poder leerse en 30 segundos y dejar claro que hay método y entrega.
+
+**Prompt IA:**  
+"Redacta un README.md para reclutadores sobre mi repositorio de ciberseguridad. Debe incluir: resumen, qué encontrarán, estructura por carpetas con enlaces, skills demostradas, y cómo ejecutar o revisar el proyecto final. Tono profesional y claro."
 
 ---
 
 ## 6. Preparación para entrevistas y empleo real (junior)
 
-En esta parte no vas a escribir código, sino **respuestas y guiones** para ti.
-
 Crea un fichero:
 
-`09-Proyecto-Empleo-Semana_12_Empleo_Preparacion.md`
+- `09-Proyecto-Empleo-Semana_12_Empleo_Preparacion.md`
 
-### 6.1. Preguntas típicas que te pueden caer
+### 6.1. Preguntas típicas y guiones de respuesta
 
-Responde, por escrito, a cosas como:
+Responde por escrito:
 
-1. **“Cuéntame tu experiencia en ciberseguridad.”**  
-   → Aquí puedes hablar de:
-   - Tu laboratorio.
-   - Este curso estructurado por semanas.
-   - El proyecto final integrador.
+1. "Cuéntame tu experiencia en ciberseguridad."
+- Habla del laboratorio, del plan por semanas y del proyecto final.
 
-2. **“¿Qué sabes de SOC y de un analista N1/N2?”**  
-   - Explica:
-     - Eventos, alertas, incidentes.
-     - Triage, uso de SIEM.
-     - Threat Hunting básico.
+2. "¿Qué sabes de SOC y de un analista N1/N2?"
+- Evento, alerta, incidente.
+- Triage, escalado, documentación.
+- Threat hunting básico.
 
-3. **“¿Has hecho algo de pentesting?”**  
-   - Cuenta:
-     - Tus prácticas con Kali, nmap, escenarios de laboratorio.
-     - Seguridad web básica (OWASP, XSS de prueba).
-     - Siempre recalcando que ha sido en entorno controlado.
+3. "¿Has hecho algo de pentesting?"
+- Escaneos y enumeración en laboratorio.
+- Seguridad web básica (OWASP, Burp).
+- Siempre recalcando entorno controlado.
 
-4. **“¿Sabes programar / automatizar?”**  
-   - Menciona:
-     - Scripts en Bash, Python y PowerShell.
-     - Cómo los has usado para analizar logs.
-     - Uso de IA para generar scripts y luego revisarlos.
+4. "¿Sabes programar / automatizar?"
+- Scripts Bash/Python/PowerShell para analizar logs.
+- Uso de IA para generar scripts y revisión manual.
 
-5. **“¿Has trabajado con MITRE ATT&CK / Purple Team?”**  
-   - Explica:
-     - Que has hecho ejercicios simples de Purple Team.
-     - Cómo has mapeado técnicas a logs y detecciones.
+5. "¿Has trabajado con MITRE ATT&CK / Purple Team?"
+- Ejercicios Purple.
+- Mapeo técnica → evidencia → detección.
 
-### 6.2. Destacar lo que te hace diferente como junior
+### 6.2. Qué te diferencia como junior
 
-En el mismo fichero, escribe una mini sección:
+Incluye una sección:
 
-> “Qué me diferencia como junior”
+- "Qué me diferencia como junior"
 
-Por ejemplo:
+Ideas típicas:
 
-- Tienes un laboratorio funcional con varios sistemas.
-- Has documentado sistemáticamente tus ejercicios.
-- Has simulado ejercicios Purple Team simples.
-- Has trabajado tanto visión ofensiva como defensiva.
-- Has aplicado automatización (scripts) desde el principio.
+- Laboratorio funcional con varios sistemas.
+- Documentación sistemática (no solo práctica).
+- Visión ofensiva y defensiva unidas.
+- Automatización aplicada desde el inicio.
+- Proyecto final integrador con mapeo MITRE.
 
-Esto luego lo podrás usar en tu perfil de LinkedIn, CV y entrevistas.
+**Prompt IA:**  
+"Actúa como entrevistador para un rol junior SOC o generalista. Genera 15 preguntas y una guía de respuesta en formato STAR. Usa como base mi laboratorio, mis scripts y mi proyecto final."
 
 ---
 
 ## 7. Siguientes pasos tras los 3 meses
 
-Por último, en el mismo fichero o en `09-Proyecto-Empleo-Semana_12_Siguientes_Pasos.md`, define:
+En `09-Proyecto-Empleo-Semana_12_Siguientes_Pasos.md`:
 
-- ¿Quieres orientarte más a:**
-  - SOC / Blue Team.
-  - Red Team / pentesting.
-  - Cloud Security.
-  - Automatización / ingeniería de seguridad.
+1. Define foco principal:
+- SOC / Blue Team
+- Pentest / Red Team
+- Cloud Security
+- Automatización / Security Engineering
 
-- En función de eso, decide:
-  - 1–2 certificaciones a medio plazo (ej: orientadas a SOC, a pentest, etc.).
-  - 1–2 proyectos extra:
-    - Más máquinas vulnerables (CTFs).
-    - Más casos de uso de detección.
-    - Más integración con herramientas reales (cuando tengas acceso a SIEM/EDR).
+2. Define 2 líneas de trabajo:
+- 1 certificación o ruta formativa
+- 1 proyecto práctico
 
-La idea es que el curso no “termine”, sino que se convierta en tu base para seguir construyendo.
+Ejemplos de proyectos:
+
+- Montar un mini SIEM local (ingesta básica de logs y dashboards).
+- Repetir hunts y convertirlos en reglas formales.
+- Ampliar web lab con una app vulnerable y documentar mitigaciones.
+- Automatizar generación de reportes a partir de logs.
+
+**Prompt IA:**  
+"Propón un plan de 8 semanas post-curso según mi enfoque (SOC o Pentest o Cloud). Incluye: objetivos semanales, entregables en GitHub, y una mini lista de certificaciones o rutas recomendadas."
 
 ---
 
@@ -439,21 +518,24 @@ La idea es que el curso no “termine”, sino que se convierta en tu base para 
 
 Al menos:
 
-1. `09-Proyecto-Empleo-Semana_12_Proyecto_Final.md`  
-   - Proyecto integrador con entorno, ataque, defensa, automatización, MITRE y conclusiones.
+1. `09-Proyecto-Empleo-Semana_12_Proyecto_Final.md`
+- Proyecto integrador: entorno, ataque, defensa, automatización, MITRE y conclusiones.
 
-2. `09-Proyecto-Empleo-Semana_12_Empleo_Preparacion.md`  
-   - Respuestas preparadas a preguntas típicas de entrevista.
-   - Puntos clave para destacar tu perfil.
+2. `09-Proyecto-Empleo-Semana_12_Empleo_Preparacion.md`
+- Respuestas a entrevistas.
+- Guiones y puntos diferenciales.
 
-3. (Opcional pero recomendable)  
-   - `09-Proyecto-Empleo-Semana_12_Siguientes_Pasos.md`  
-     - Plan personal post-curso (certificaciones, proyectos, enfoque).
+3. Opcional pero recomendable:
+- `09-Proyecto-Empleo-Semana_12_Siguientes_Pasos.md`
+- Plan post-curso.
 
-Además de:
+Además:
 
-- README principal del repositorio revisado.
-- Carpetas organizadas de forma lógica.
+- README principal revisado.
+- Estructura de carpetas coherente y navegable.
+
+**Prompt IA:**  
+"Actúa como revisor final. Crea un checklist de validación para Semana 12: proyecto final, README, estructura de repo y preparación de entrevistas. Debe ser una lista accionable y específica."
 
 ---
 
@@ -467,28 +549,35 @@ Marca como completado cuando:
 - [ ] Has preparado tu repositorio GitHub para que sea entendible como portfolio.
 - [ ] Has escrito respuestas a preguntas típicas de entrevistas de ciberseguridad junior.
 - [ ] Tienes una idea clara de tus siguientes pasos (especialización, certificaciones, proyectos).
-- [ ] Sientes que puedes explicar lo que sabes de forma ordenada y convincente.
+- [ ] Puedes explicar lo que sabes de forma ordenada y convincente en 60-90 segundos.
 
-Si completas esta semana, no solo tendrás **conocimientos**, sino también:
+Si completas esta semana, no solo tendrás conocimientos, sino también:
 
-- **Evidencias** (lab, scripts, documentos).
-- **Narrativa** (cómo contar tu historia de aprendizaje).
-- **Plan de acción** para seguir creciendo.
+- Evidencias (lab, scripts, documentos).
+- Narrativa (cómo contar tu historia de aprendizaje).
+- Plan de acción para seguir creciendo.
 
 Y eso, en un perfil junior, marca mucha diferencia. 💼🚀
 
-Enhoorabuena por llegar hasta el final de este curso de introducción a la ciberseguridad! 🙌  
+**Prompt IA:**  
+"Actúa como coach. Escribe un pitch de 45 segundos para entrevista basado en mi ruta de 12 semanas. Debe mencionar laboratorio, proyecto final, scripts, visión SOC y MITRE/OWASP, sin sonar a texto memorizado."
 
-Espero de verdad que todo el contenido —laboratorio, semanas, ejercicios prácticos y proyecto final— te haya resultado útil para construir una base sólida y empezar (o reforzar) tu camino en este mundo.  
-Si algo de todo esto te ha aportado, aunque sea una sola idea o un pequeño empujón, para mí ya habrá merecido la pena haberlo creado.  
+---
 
-Te invito a:  
+## 10. Mensaje de cierre del curso
 
-- ⭐ **Seguirme** para no perderte futuros contenidos, mejoras del curso y nuevos proyectos.  
-- 🔁 **Compartir el repositorio/curso** con cualquier persona que esté empezando en ciberseguridad o quiera montar su propio laboratorio.  
+Enhorabuena por llegar hasta el final de este curso de introducción a la ciberseguridad. 🙌
+
+Espero de verdad que todo el contenido - laboratorio, semanas, ejercicios prácticos y proyecto final - te haya resultado útil para construir una base sólida y empezar, o reforzar, tu camino en este mundo.
+
+Si algo de todo esto te ha aportado aunque sea una sola idea o un pequeño empujón, para mí ya habrá merecido la pena haberlo creado.
+
+Te invito a:
+
+- Seguirme para no perderte futuros contenidos, mejoras del curso y nuevos proyectos.
+- Compartir el repositorio/curso con cualquier persona que esté empezando en ciberseguridad o quiera montar su propio laboratorio.
 
 Cuanta más gente pueda aprovechar este material, mejor para la comunidad.  
-¡Nos vemos en los siguientes proyectos! 💻🛡️🚀
-
+Nos vemos en los siguientes proyectos. 💻🛡️🚀
 
 ---
